@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  --TextWhite: #ffffff;
+  --LinkBackground: rgba(255, 255, 255, 0.1);
+  --LinkBackgroundInHover: rgba(255, 255, 255, 0.05);
+  --LinkBorder: rgba(255, 255, 255, 0.5);
+  --LinkBorderInHover: rgb(255, 255, 255);
+  box-sizing: border-box;
+}
+
+body {
+  background: url(assets/bg-mobile.jpg) no-repeat center top/cover;
+  font-family: "Inter", sans-serif;
+}
+h1 {
+}
+#container {
+  width: 360px;
+
+  text-align: center;
+
+  margin: auto;
+  margin-top: 36px;
+  padding: 24px;
+}
+
+/*//////////////////////*/
+
+#profile p {
+  color: var(--TextWhite);
+  font-weight: 500;
+  line-height: 24px;
+
+  padding: 24px;
+}
+#profile img {
+  width: 112px;
+  display: block;
+  margin: auto;
+  margin-top: 8px;
+}
+
+/*Links*/
+
+#Links * {
+  color: white;
+  font-weight: bolder;
+}
+
+#Links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  list-style: none;
+}
+
+#Links li a {
+  /*Window*/
+  display: flex;
+  background-color: var(--LinkBackground);
+  padding: 16px 24px;
+  justify-content: center;
+  border: 1px solid var(--LinkBorder);
+  border-radius: 14px;
+  -webkit-backdrop-filter: blur();
+  /*Text*/
+  text-decoration: none;
+  font-weight: bolder;
+  white-space: nowrap;
+  transition: background .5s;
+  
+}
+#Links li a:hover {
+background: var(--LinkBackgroundInHover);
+
+  border: 1.5px solid var(--LinkBorderInHover);
+  
+}
