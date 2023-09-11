@@ -3,16 +3,33 @@
 * {
   margin: 0;
   padding: 0;
-  --TextWhite: #ffffff;
+
+  box-sizing: border-box;
+}
+:root {
+  /*light*/
+  --text-color: #ffffff;
   --LinkBackground: rgba(255, 255, 255, 0.1);
   --LinkBackgroundInHover: rgba(255, 255, 255, 0.05);
   --LinkBorder: rgba(255, 255, 255, 0.5);
   --LinkBorderInHover: rgb(255, 255, 255);
-  box-sizing: border-box;
+  /**/
+  --bg-url: url(assets/bg-mobile.jpg);
+  --switch-bg-url: url(./assets/MoonStars.svg);
+}
+
+.light {
+  --text-color: black;
+  --bg-url: url(assets/bg-mobile-light.jpg);
+  --LinkBackground: rgba(255, 255, 255, 0.9);
+  --LinkBackgroundInHover: rgba(1, 1, 1, 0.1);
+  --LinkBorder: rgba(0, 0, 0, 0.5);
+  --LinkBorderInHover: rgb(1, 1, 1);
+  --switch-bg-url: url(./assets/Sun.svg);
 }
 
 body {
-  background: url(assets/bg-mobile.jpg) no-repeat center top/cover;
+  background: var(--bg-url) no-repeat center top/cover;
   font-family: "Inter", sans-serif;
 }
 h1 {
@@ -30,7 +47,7 @@ h1 {
 /*//////////////////////*/
 
 #profile p {
-  color: var(--TextWhite);
+  color: var(--text-color);
   font-weight: 500;
   line-height: 24px;
 
@@ -43,10 +60,40 @@ h1 {
   margin-top: 8px;
 }
 
+/*Switch*/
+
+#switch {
+  width: 64px;
+  position: relative;
+  margin: auto;
+}
+#switch button {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border-radius: 50%;
+  z-index: 1;
+  transition-duration: 0.5s;
+  transform: translate(-100%);
+}
+.light #switch button {
+  transform: initial;
+}
+#switch span {
+  display: block;
+  width: 64px;
+  height: 32px;
+  background-color: var(--LinkBackground);
+  border: 1px solid var(--LinkBorder);
+  border-radius: 9999px;
+  -webkit-backdrop-filter: blur(4px);
+}
+
 /*Links*/
 
 #Links * {
-  color: white;
+  color: var(--text-color);
   font-weight: bolder;
 }
 
@@ -56,6 +103,7 @@ h1 {
   gap: 8px;
 
   list-style: none;
+  padding: 24px 0;
 }
 
 #Links li a {
@@ -70,13 +118,36 @@ h1 {
   /*Text*/
   text-decoration: none;
   font-weight: bolder;
-  white-space: nowrap;
-  transition: background .5s;
-  
+  transition: background 0.2s;
 }
 #Links li a:hover {
-background: var(--LinkBackgroundInHover);
+  background: var(--LinkBackgroundInHover);
 
   border: 1.5px solid var(--LinkBorderInHover);
-  
+}
+.social-links {
+  display: flex;
+  padding-top: 24px;
+  gap: 16px;
+  justify-content: center;
+  font-size: 28px;
+  color: var(--text-color);
+}
+.social-links a {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s;
+  color: var(--text-color);
+}
+.social-links a:hover {
+  background-color: var(--LinkBackgroundInHover);
+}
+footer,
+footer a {
+  color: var(--text-color);
+
+  padding-top: 24px;
 }
