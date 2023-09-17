@@ -21,7 +21,7 @@
 .light {
   --text-color: black;
   --bg-url: url(assets/bg-mobile-light.jpg);
-  --LinkBackground: rgba(255, 255, 255, 0.9);
+  --LinkBackground: rgba(255, 255, 255, 0.192);
   --LinkBackgroundInHover: rgba(1, 1, 1, 0.1);
   --LinkBorder: rgba(0, 0, 0, 0.5);
   --LinkBorderInHover: rgb(1, 1, 1);
@@ -31,11 +31,13 @@
 body {
   background: var(--bg-url) no-repeat center top/cover;
   font-family: "Inter", sans-serif;
+  height: 100vh;
+  transition: 0.5s ease-in;
 }
 h1 {
 }
 #container {
-  width: 360px;
+  max-width: 500px;
 
   text-align: center;
 
@@ -63,22 +65,25 @@ h1 {
 /*Switch*/
 
 #switch {
+  display: flex;
   width: 64px;
   position: relative;
   margin: auto;
 }
 #switch button {
+  animation: ChangeThemeButtonAnimToDark 0.4s;
   position: absolute;
   width: 32px;
   height: 32px;
   background: white var(--switch-bg-url) no-repeat center;
   border-radius: 50%;
   z-index: 1;
-  transition-duration: 0.5s;
-  transform: translate(-100%);
+}
+#switch button:hover {
+  outline: 6px solid var(--LinkBorder);
 }
 .light #switch button {
-  transform: initial;
+  animation: ChangeThemeButtonAnimToLight 0.4s forwards;
 }
 #switch span {
   display: block;
@@ -150,4 +155,34 @@ footer a {
   color: var(--text-color);
 
   padding-top: 24px;
+}
+
+/*Media query*/
+
+@media (min-width: 768px) {
+  :root {
+    --bg-url: url(assets/bg-desktop.jpg);
+  }
+  .light {
+    --bg-url: url(assets/bg-desktop-light.jpg);
+  }
+}
+
+/*ANIMAÇÕES DO PROJETO*/
+
+@keyframes ChangeThemeButtonAnimToLight {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+@keyframes ChangeThemeButtonAnimToDark {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0%;
+  }
 }
